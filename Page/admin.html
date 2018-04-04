@@ -92,20 +92,17 @@
 
                     map.addListener('click',function(event){
                         marker.setPosition(event.latLng);
-                        console.log(marker.position.toString()); //klik marker pada peta yang ada di maps
-                                                             //buka inspect elemet caranya (Ctrl+Shift+I)
-                                                             //liat di konsole ada koordinat muncul saat klik peta 
-                                                             //addListener ini untuk mengerjakan tugas SIG ditambah function push untuk menambahkan data ke array
-                                                             //yang kemarin gak muncul petanya karena copy scrip api key nya terbalik :)
-                    // ambil nilai lat nya
+                        console.log(marker.position.toString());
+                        
+                    
                     var late = marker.getPosition().lat();
-                    // ambil nilai lang nya
+                    
                     var lang = marker.getPosition().lng();
-                    // ambil nilai lat nya terus ditaruh di html dengan id="Late"
+                    
                     document.getElementById("Late").innerHTML="Lat : "+late;
-                    // yang ini untu lang nya
+                    
                     document.getElementById("Lng").innerHTML="Lang : "+lang;
-                    // push nilai lat dan lang diatas ke array lokasi
+                    
                     lokasi.push("{lat:"+late+", lng:"+lang+"}");            
                 });
             }
