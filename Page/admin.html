@@ -61,9 +61,7 @@
     </head>
 
     <body>
-        <!-- Buat Menu atas -->
         <div id="menu">
-            <!-- Atur batas kanan kiri halaman -->
             <div class="content">
                 <b><ul>
                     <a href=""><li>Home</li></a>
@@ -71,29 +69,26 @@
                     <a href=""><li>Hasil Analisis</li></a>
                 </ul></b>
             </div>
-            <!-- Selesai Atur Batas -->
         </div>
-        <!-- Selesai Buat Menu -->
-        <!-- Atur Batas Kertas kanan kiri -->
+        
+        
         <div class="content">
             <h1>Menginput Titik Populasi Pesebaran Mahasiswa Unila</h1>
-            <!-- Tempet munculin map -->
-            <div id="map"></div>
-            <script>
-                // bentuk mapnya
-                function initMap() {
-                    var bdl = {lat :-5.3971, lng:105.2668};
-                    var map = new google.maps.Map (document.getElementById('map'),{
-                        zoom : 5,
-                        minZoom : 1,
-                        maxZoom : 16,
-                        center : {lat :-0.702716, lng :119.748841}
-                });
+                  <div id="map"></div>
+                        <script>
+                                function initMap() {
+                                var bdl = {lat :-5.3971, lng:105.2668};
+                                var map = new google.maps.Map (document.getElementById('map'),{
+                                    zoom : 5,
+                                    minZoom : 1,
+                                    maxZoom : 16,
+                                    center : {lat :-0.702716, lng :119.748841}
+                                                });
 
-                var marker = new google.maps.Marker({ //membuat marker ada titik pusat
+                var marker = new google.maps.Marker({
                     position: bdl,
                     map: map
-                });
+                              });
 
                 map.addListener('click',function(event){
                     marker.setPosition(event.latLng);
@@ -122,20 +117,20 @@
                 console.log(lokasi);
             }
             
-            </script>
-            <h4>Informasi Titik Yang Anda Pilih : </h4>
-
-            <div id="Late">Lat : </div>
-            <div id="Lng">Lang : </div>
-
-            <button id="simpan" onclick="simpan()">Save</button>
-        </div>
-        <div id="footer">
-            <div class="content">
-                &copy Copyright 2018. Ilmu Komputer Universitas Lampung
-            </div>
-        </div>
-    </body>
+                    </script>
+                        <h4>Informasi Titik Yang Anda Pilih : </h4>
+                                <div id="Late">Lat : </div>
+                                <div id="Lng">Lang : </div>
+                                
+                                    <button id="simpan" onclick="simpan()">Save</button>
+                                </div>
+                                
+                                    <div id="footer">
+                                    <div class="content">
+                                         &copy Copyright 2018. Ilmu Komputer Universitas Lampung
+                                    </div>
+                                 </div>
+             </body>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCx0yZKvuXFS6QawkRgVvmSw_xL7eDS_4&callback=initMap">
     </script>
