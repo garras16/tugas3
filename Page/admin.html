@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Halaman Admin | Input Titi</title>
+        <title>Halaman Admin | Input Titik</title>
 
         <style>
             body {
@@ -90,9 +90,9 @@
                     map: map
                               });
 
-                map.addListener('click',function(event){
-                    marker.setPosition(event.latLng);
-                    console.log(marker.position.toString()); //klik marker pada peta yang ada di maps
+                    map.addListener('click',function(event){
+                        marker.setPosition(event.latLng);
+                        console.log(marker.position.toString()); //klik marker pada peta yang ada di maps
                                                              //buka inspect elemet caranya (Ctrl+Shift+I)
                                                              //liat di konsole ada koordinat muncul saat klik peta 
                                                              //addListener ini untuk mengerjakan tugas SIG ditambah function push untuk menambahkan data ke array
@@ -109,12 +109,9 @@
                     lokasi.push("{lat:"+late+", lng:"+lang+"}");            
                 });
             }
-            // array nyimpen lat dan lang
             var lokasi = [];
-            // efek untuk button save
             function simpan() {
-                // biar tampil di console
-                console.log(lokasi);
+            console.log(lokasi);
             }
             
                     </script>
