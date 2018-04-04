@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Halaman Admin | Input Titikr</title>
+
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            .content {
+                width: 80%;
+                margin: 0px 10%;
+            }
+            #map{
+                width: 100%;
+                height: 600px;
+                background: whitesmoke;
+            }
+            #menu {
+                width: 100%;
+                background: #0000FF;
+                padding: 1px 0px;
+            }
+            #menu ul {
+                color: #FFFFFF;
+                padding: 10px 0px;
+                margin: 0px;
+                overflow: none;
+            }
+            #menu ul li {
+                list-style: none;
+                text-decoration: none;
+                display: inline;
+                padding: 11px 30px;
+                font-size: 18px;
+            }
+            #menu ul a {
+                text-decoration: none;
+                color: #FFFFFF;
+            }
+            #menu ul li:hover {
+                background: #4C9ADA;
+                color: #000000;
+            }
+            #late, #lang {
+                margin-bottom: 20px;
+                margin-top: 10px;
+                border: 1px solid grey;
+            }
+
+            #simpan {
+                padding: 5px 15px;
+                margin: 20px 0px;
+            }
+            #footer {
+                font-size: 10px;
+                padding: 5px 30%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="menu">
+            <div class="content">
+                <b><ul>
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>Daftar Pesebaran</li></a>
+                    <a href=""><li>Hasil Analisis</li></a>
+                </ul></b>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Menginput Titik Populasi Pesebaran Mahasiswa Unila</h1>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var bdl = {lat :-5.3971, lng:105.2668};
+                    var map = new google.maps.Map (document.getElementById('map'),{
+                        zoom : 5,
+                        minZoom : 1,
+                        maxZoom : 16,
+                        center : {lat :-0.702716, lng :119.748841}
+                });
+
+                var marker = new google.maps.Marker({ //membuat marker ada titik pusat
+                    position: bdl,
+                    map: map
+                });
+
+                map.addListener('click',function(event){
+                    marker.setPosition(event.latLng);
+                    console.log(marker.position.toString()); //klik marker pada peta yang ada di maps
+                                                             //buka inspect elemet caranya (Ctrl+Shift+I)
+                                                             //liat di konsole ada koordinat muncul saat klik peta 
+                                                             //addListener ini untuk mengerjakan tugas SIG ditambah function push untuk menambahkan data ke array
+                                                             //yang kemarin gak muncul petanya karena copy scrip api key nya terbalik :)
+                    var late = marker.getPosition().lat();
+                    var lang = marker.getPosition().lng();
+                    document.getElementById("Late").innerHTML="Lat : "+late;
+                    document.getElementById("Lng").innerHTML="Lang : "+lang;
+                    lokasi.push("{lat:"+late+", lng:"+lang+"}");            
+                });
+            }
+            var lokasi = [];
+            function simpan() {
+                console.log(lokasi);
+            }
+            
+            </script>
+            <h4>Informasi Titik Yang Anda Pilih : </h4>
+
+            <div id="Late">Lat : </div>
+            <div id="Lng">Lang : </div>
+
+            <button id="simpan" onclick="simpan()">Save</button>
+        </div>
+        <div id="footer">
+            <div class="content">
+                &copy Copyright 2018. Ilmu Komputer Universitas Lampung
+            </div>
+        </div>
+    </body>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCx0yZKvuXFS6QawkRgVvmSw_xL7eDS_4&callback=initMap">
+    </script>
+
+</html>
