@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Halaman Admin | Input Titikr</title>
+        <title>Halaman Admin | Input Titi</title>
 
         <style>
             body {
@@ -61,7 +61,9 @@
     </head>
 
     <body>
+        <!-- Buat Menu atas -->
         <div id="menu">
+            <!-- Atur batas kanan kiri halaman -->
             <div class="content">
                 <b><ul>
                     <a href=""><li>Home</li></a>
@@ -69,11 +71,16 @@
                     <a href=""><li>Hasil Analisis</li></a>
                 </ul></b>
             </div>
+            <!-- Selesai Atur Batas -->
         </div>
+        <!-- Selesai Buat Menu -->
+        <!-- Atur Batas Kertas kanan kiri -->
         <div class="content">
             <h1>Menginput Titik Populasi Pesebaran Mahasiswa Unila</h1>
+            <!-- Tempet munculin map -->
             <div id="map"></div>
             <script>
+                // bentuk mapnya
                 function initMap() {
                     var bdl = {lat :-5.3971, lng:105.2668};
                     var map = new google.maps.Map (document.getElementById('map'),{
@@ -95,15 +102,23 @@
                                                              //liat di konsole ada koordinat muncul saat klik peta 
                                                              //addListener ini untuk mengerjakan tugas SIG ditambah function push untuk menambahkan data ke array
                                                              //yang kemarin gak muncul petanya karena copy scrip api key nya terbalik :)
+                    // ambil nilai lat nya
                     var late = marker.getPosition().lat();
+                    // ambil nilai lang nya
                     var lang = marker.getPosition().lng();
+                    // ambil nilai lat nya terus ditaruh di html dengan id="Late"
                     document.getElementById("Late").innerHTML="Lat : "+late;
+                    // yang ini untu lang nya
                     document.getElementById("Lng").innerHTML="Lang : "+lang;
+                    // push nilai lat dan lang diatas ke array lokasi
                     lokasi.push("{lat:"+late+", lng:"+lang+"}");            
                 });
             }
+            // array nyimpen lat dan lang
             var lokasi = [];
+            // efek untuk button save
             function simpan() {
+                // biar tampil di console
                 console.log(lokasi);
             }
             
